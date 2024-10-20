@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_2.css" />
+    <title>Memimum - Definisi dan Cara Kerja HTTP dan HTTPS</title>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <h1>Memimum</h1>
+        <div class="author">By Dorisman Dwi Paskah</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Definisi dan Cara Kerja HTTP dan HTTPS</h2>
+      <div class="subtitle">
+        Bagaimana protokol ini mengelola pengiriman data antara server dan
+        browser, serta pentingnya keamanan dalam HTTPS.
+      </div>
+      <hr />
+      <p>
+        Bagaimana cara kerja HTTP? HTTP adalah singkatan dari HyperText Transfer
+        Protocol, yaitu protokol sisi aplikasi yang digunakan untuk
+        mentransmisikan dokumen hypermedia seperti HTML. HTTP mentransfer data
+        melalui koneksi TCP antara klien dan server (Kita tidak akan membahas
+        terlalu dalam tentang ini, kita bisa menambahkan blog baru tentangnya).
+        HTTP mentransfer teks biasa melalui koneksi yang bisa dibaca oleh
+        seseorang yang memiliki akses ke koneksi Anda. Misalnya, jika Anda
+        bertukar data melalui wifi bersama, seseorang dapat mengendus data Anda
+        menggunakan alat pengendus data (akan ditambahkan blog tentang cara
+        menggunakan Wireshark untuk mengendus data). Mari kita batasi informasi
+        tentang HTTP sampai di sini saja.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel2/1_Pb2ijJSQ7Tuneg2v6TrPeQ.webp" />
+        <figcaption>HTTP website</figcaption>
+      </div>
+      <div class="diagram">
+        <img src="image/artikel2/1_ytzlE-W_8ZVanSb1luVCtg.webp" />
+        <figcaption>Konsep dasar HTTPS</figcaption>
+      </div>
+      <p>
+        Sekarang mari kita alihkan fokus ke cara kerja HTTPS. HTTPS berarti HTTP
+        di atas lapisan aman sehingga tidak ada yang bisa mengendus atau
+        memodifikasi data di tengah (serangan Man in the Middle). Dalam HTTPS,
+        saat klien mencoba terhubung dengan server, server akan mengirimkan
+        sertifikat SSL. Sertifikat ini berisi kunci publik dan tanda tangan
+        digital. Ini digunakan untuk memverifikasi apakah sertifikat valid atau
+        tidak. Kunci publik akan digunakan untuk proses enkripsi asimetris.
+        Pertama, mari kita pahami enkripsi asimetris dan simetris.
+      </p>
+      <h3>Enkripsi Asimetris</h3>
+      <p>
+        Enkripsi asimetris dikenal sebagai kriptografi kunci publik. Dalam
+        sistem ini, kunci publik digunakan untuk mengenkripsi data, sementara
+        kunci privat digunakan untuk mendekripsi data.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel2/1_EuezhpcyhGpQAXGu4dtvaQ.webp" />
+        <!-- <figcaption>Konsep dasar HTTPS</figcaption> -->
+      </div>
+      <h3>Enkripsi Simetris</h3>
+      <p>
+        Enkripsi simetris adalah jenis enkripsi di mana hanya satu kunci yang
+        digunakan untuk mengenkripsi dan mendekripsi data. Entitas akan berbagi
+        kunci selama komunikasi untuk mengenkripsi dan mendekripsi data.
+      </p>
+      <h3>Bagaimana HTTPS menggunakannya?</h3>
+      <ol>
+        <li>
+          Selama proses handshake, server mengirimkan sertifikat SSL yang
+          memiliki kunci publik asimetris ke klien. Server juga memiliki kunci
+          privat yang disimpan di server web (server sendiri).
+        </li>
+        <li>
+          Klien kemudian akan membuat kunci sesi berdasarkan algoritma tertentu.
+          Kunci sesi ini akan dienkripsi menggunakan kunci publik, kemudian
+          dikirim ke server.
+        </li>
+        <li>
+          Server akan menggunakan kunci privat asimetris untuk mendekripsi kunci
+          sesi yang dienkripsi dan mendapatkan kunci sesi tersebut.
+        </li>
+        <li>
+          Sekarang browser akan menggunakan kunci sesi untuk mengenkripsi dan
+          mendekripsi data selama sesi tersebut. Ini disebut enkripsi simetris.
+          Data kini aman karena hanya klien dan server yang mengetahui kunci
+          sesi tersebut. Setelah sesi berakhir, proses ini akan diulang lagi
+          dari langkah 1, karena kunci sesi tidak akan berlaku lagi.
+        </li>
+      </ol>
+      <p>
+        Membajak kunci sesi akan sulit karena kunci tersebut hanya berlaku untuk
+        waktu yang sangat singkat. Enkripsi simetris relatif lebih cepat
+        dibandingkan enkripsi asimetris karena membutuhkan perhitungan yang
+        sangat sedikit.
+        <br /><br />
+        Beberapa algoritma enkripsi kunci publik yang populer adalah RSA
+        (Rivest–Shamir–Adleman) dan ECC (Elliptic Curve Cryptography).
+        <br /><br />
+        Setelah proses di atas selesai, semuanya akan sama seperti HTTP, yaitu
+        berbagi data melalui koneksi TCP.
+        <br /><br />
+        Setelah semuanya berjalan melalui HTTPS, tampilannya akan seperti ini:
+      </p>
+      <div class="diagram">
+        <img src="image/artikel2/1_Pb2ijJSQ7Tuneg2v6TrPeQ.webp" />
+        <!-- <figcaption>Konsep dasar HTTPS</figcaption> -->
+      </div>
+      <div class="diagram">
+        <img src="image/artikel2/1_wYXEsHe82yL2REjl7-wWig.webp" />
+        <!-- <figcaption>Konsep dasar HTTPS</figcaption> -->
+      </div>
+      <h3>Apakah SSL dan TLS adalah hal yang sama?</h3>
+      <p>
+        SSL adalah pendahulu langsung dari protokol lain yang disebut TLS
+        (Transport Layer Security). Pada tahun 1999, Internet Engineering Task
+        Force (IETF) mengusulkan pembaruan terhadap SSL. Karena pembaruan ini
+        dikembangkan oleh IETF dan Netscape tidak lagi terlibat, nama tersebut
+        diubah menjadi TLS. Perbedaan antara versi terakhir SSL (3.0) dan versi
+        pertama TLS tidak terlalu drastis; perubahan nama dilakukan untuk
+        menandai perubahan kepemilikan.
+        <br /><br />
+        Karena keduanya sangat erat terkait, kedua istilah ini sering digunakan
+        secara bergantian dan membingungkan. Beberapa orang masih menggunakan
+        istilah SSL untuk merujuk ke TLS, sementara yang lain menggunakan
+        istilah "enkripsi SSL/TLS" karena SSL masih dikenal luas.
+      </p>
+      <h3>Sumber :</h3>
+      <a href="https://medium.com/swlh/how-http-and-https-work-4c689e1ea369">
+        <p>How HTTP and HTTPS Work?</p>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h3>Memimum</h3>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Linkind</a>
+          <a href="#">Twitter</a>
+          <a href="#">Github</a>
+        </div>
+        <p class="copyright">&copy; 2024 Dorizz</p>
+      </div>
+    </footer>
+
+    <script>
+      let lastScrollTop = 0;
+      const header = document.getElementById("main-header");
+
+      window.addEventListener("scroll", function () {
+        let currentScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+          // Scroll turun, sembunyikan header
+          header.classList.add("hidden-header");
+        } else {
+          // Scroll naik, tampilkan header
+          header.classList.remove("hidden-header");
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Hindari nilai negatif
+      });
+    </script>
+  </body>
+</html>

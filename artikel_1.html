@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_2.css" />
+    <title>Memimum - Cara Kerja Internet Secara Umum</title>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <h1>Memimum</h1>
+        <div class="author">By Dorisman Dwi Paskah</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Cara Kerja Internet Secara Umum</h2>
+      <div class="subtitle">
+        Penjelasan singkat mengenai bagaimana internet beroperasi dan
+        menghubungkan jutaan perangkat di seluruh dunia.
+      </div>
+      <hr />
+      <h3>Jaringan Sederhana</h3>
+      <p>
+        Ketika dua komputer perlu berkomunikasi, Anda harus menghubungkannya,
+        baik secara fisik (biasanya dengan kabel Ethernet) atau nirkabel
+        (misalnya dengan sistem Wi-Fi atau Bluetooth). Semua komputer modern
+        dapat mendukung salah satu dari koneksi tersebut.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-1.png" />
+      </div>
+      <p>
+        Jaringan semacam ini tidak terbatas pada dua komputer. Anda dapat
+        menghubungkan sebanyak mungkin komputer yang Anda inginkan. Tetapi hal
+        ini dengan cepat menjadi rumit. Jika Anda mencoba menghubungkan,
+        misalnya, sepuluh komputer, Anda memerlukan 45 kabel, dengan sembilan
+        colokan per komputer!
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-2.png" />
+      </div>
+      <p>
+        Untuk mengatasi masalah ini, setiap komputer pada jaringan terhubung ke
+        komputer kecil khusus yang disebut router. Router ini hanya memiliki
+        satu tugas: seperti seorang pengatur sinyal di stasiun kereta api, ia
+        memastikan bahwa pesan yang dikirim dari komputer tertentu sampai ke
+        komputer tujuan yang benar. Untuk mengirim pesan ke komputer B, komputer
+        A harus mengirim pesan ke router, yang kemudian meneruskan pesan
+        tersebut ke komputer B dan memastikan pesan tidak dikirim ke komputer C.
+        <br /><br />
+        Setelah kita menambahkan router ke sistem, jaringan 10 komputer kita
+        hanya memerlukan 10 kabel: satu colokan untuk setiap komputer dan router
+        dengan 10 colokan.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-3.png" />
+      </div>
+      <h3>Jaringan dari Jaringan</h3>
+      <p>
+        Sampai di sini semuanya baik-baik saja. Tapi bagaimana dengan
+        menghubungkan ratusan, ribuan, miliaran komputer? Tentu saja, sebuah
+        router tunggal tidak dapat menangani skala sebesar itu, tetapi, jika
+        Anda membaca dengan teliti, kami menyebut bahwa router adalah komputer
+        seperti yang lain, jadi apa yang menghalangi kita untuk menghubungkan
+        dua router bersama? Tidak ada, jadi mari kita lakukan.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-4.png" />
+      </div>
+      <p>
+        Dengan menghubungkan komputer ke router, kemudian router ke router, kita
+        dapat memperluas jaringan tanpa batas.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-5.png" />
+      </div>
+      <p>
+        Jaringan seperti itu sangat mendekati apa yang kita sebut Internet,
+        tetapi kita masih kehilangan sesuatu. Kita membangun jaringan itu untuk
+        tujuan kita sendiri. Ada jaringan lain di luar sana: teman Anda,
+        tetangga Anda, siapa pun bisa memiliki jaringan komputer mereka sendiri.
+        Tapi tidak mungkin memasang kabel antara rumah Anda dan seluruh dunia,
+        jadi bagaimana Anda bisa mengatasi hal ini? Nah, sudah ada kabel yang
+        terhubung ke rumah Anda, misalnya listrik dan telepon. Infrastruktur
+        telepon sudah menghubungkan rumah Anda dengan siapa pun di dunia, jadi
+        ini adalah kabel yang sempurna yang kita butuhkan. Untuk menghubungkan
+        jaringan kita ke infrastruktur telepon, kita memerlukan perangkat khusus
+        yang disebut modem. Modem ini mengubah informasi dari jaringan kita
+        menjadi informasi yang dapat dikelola oleh infrastruktur telepon dan
+        sebaliknya.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-6.png" />
+      </div>
+      <p>
+        Jadi kita terhubung ke infrastruktur telepon. Langkah berikutnya adalah
+        mengirim pesan dari jaringan kita ke jaringan yang ingin kita capai.
+        Untuk melakukan itu, kita akan menghubungkan jaringan kita ke Penyedia
+        Layanan Internet (ISP). ISP adalah perusahaan yang mengelola beberapa
+        router khusus yang semuanya terhubung bersama dan juga dapat mengakses
+        router ISP lain. Jadi pesan dari jaringan kita dibawa melalui jaringan
+        ISP menuju jaringan tujuan. Internet terdiri dari keseluruhan
+        infrastruktur jaringan ini.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-7.png" />
+      </div>
+      <h3>Menemukan komputer</h3>
+      <p>
+        Jika Anda ingin mengirim pesan ke sebuah komputer, Anda harus menentukan
+        komputer mana. Oleh karena itu, setiap komputer yang terhubung ke
+        jaringan memiliki alamat unik yang mengidentifikasinya, disebut "alamat
+        IP" (di mana IP adalah singkatan dari Internet Protocol). Ini adalah
+        alamat yang terdiri dari rangkaian empat angka yang dipisahkan oleh
+        titik, misalnya: 192.0.2.172.
+        <br /><br />
+        Itu sangat mudah untuk komputer, tetapi bagi kita manusia, sulit
+        mengingat alamat semacam itu. Untuk mempermudah, kita bisa mengganti
+        alamat IP dengan nama yang lebih mudah dibaca oleh manusia, yang disebut
+        nama domain. Sebagai contoh (saat artikel ini ditulis; alamat IP dapat
+        berubah) google.com adalah nama domain yang digunakan di atas alamat IP
+        142.250.190.78. Jadi menggunakan nama domain adalah cara termudah bagi
+        kita untuk menjangkau komputer di Internet.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/dns-ip.png" />
+      </div>
+      <h3>Internet dan web</h3>
+      <p>
+        Seperti yang mungkin Anda perhatikan, saat kita menjelajah Web dengan
+        browser, kita biasanya menggunakan nama domain untuk mengakses sebuah
+        situs web. Apakah itu berarti Internet dan Web adalah hal yang sama?
+        Tidak sesederhana itu. Seperti yang kita lihat, Internet adalah
+        infrastruktur teknis yang memungkinkan miliaran komputer terhubung satu
+        sama lain. Di antara komputer-komputer itu, beberapa komputer (disebut
+        server Web) dapat mengirimkan pesan yang dapat dimengerti oleh browser
+        web. Internet adalah infrastruktur, sedangkan Web adalah layanan yang
+        dibangun di atas infrastruktur tersebut. Perlu dicatat bahwa ada
+        beberapa layanan lain yang dibangun di atas Internet, seperti email dan
+        IRC.
+      </p>
+      <h3>Intranet dan Extranet</h3>
+      <p>
+        Intranet adalah jaringan pribadi yang terbatas pada anggota organisasi
+        tertentu. Intranet biasanya digunakan untuk menyediakan portal bagi
+        anggota untuk mengakses sumber daya bersama, berkolaborasi, dan
+        berkomunikasi secara aman. Misalnya, intranet sebuah organisasi mungkin
+        menyimpan halaman web untuk berbagi informasi departemen atau tim, drive
+        bersama untuk mengelola dokumen dan file penting, portal untuk
+        menjalankan tugas administrasi bisnis, dan alat kolaborasi seperti wiki,
+        papan diskusi, dan sistem pesan.
+        <br /><br />
+        Extranet sangat mirip dengan Intranet, kecuali bahwa mereka membuka
+        semua atau sebagian dari jaringan pribadi untuk memungkinkan berbagi dan
+        kolaborasi dengan organisasi lain. Extranet biasanya digunakan untuk
+        berbagi informasi dengan aman dengan klien dan pemangku kepentingan yang
+        bekerja sama dengan suatu bisnis. Fungsinya sering kali mirip dengan
+        yang disediakan oleh intranet: berbagi informasi dan file, alat
+        kolaborasi, papan diskusi, dan sebagainya.
+        <br /><br />
+        Baik intranet maupun extranet berjalan di atas infrastruktur yang sama
+        seperti Internet, dan menggunakan protokol yang sama. Oleh karena itu,
+        mereka dapat diakses oleh anggota yang berwenang dari lokasi fisik yang
+        berbeda.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel1/internet-schema-8.png" />
+      </div>
+      <h3>Sumber :</h3>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work"
+        ><p>How does the Internet work?</p></a
+      >
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h3>Memimum</h3>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Linkind</a>
+          <a href="#">Twitter</a>
+          <a href="#">Github</a>
+        </div>
+        <p class="copyright">&copy; 2024 Dorizz</p>
+      </div>
+    </footer>
+
+    <script>
+      let lastScrollTop = 0;
+      const header = document.getElementById("main-header");
+
+      window.addEventListener("scroll", function () {
+        let currentScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+          // Scroll turun, sembunyikan header
+          header.classList.add("hidden-header");
+        } else {
+          // Scroll naik, tampilkan header
+          header.classList.remove("hidden-header");
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Hindari nilai negatif
+      });
+    </script>
+  </body>
+</html>

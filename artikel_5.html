@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_2.css" />
+    <title>Memimum - Definisi dan Cara DNS</title>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <h1>Memimum</h1>
+        <div class="author">By Dorisman Dwi Paskah</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Definisi dan Cara DNS</h2>
+      <div class="subtitle">
+        Sistem yang menerjemahkan nama domain menjadi alamat IP, memungkinkan
+        browser menemukan server yang benar.
+      </div>
+      <hr />
+
+      <h3>Apa itu DNS?</h3>
+      <p>
+        Sistem Nama Domain (DNS) adalah sebuah basis data penamaan di mana
+        nama-nama domain internet disimpan dan diterjemahkan menjadi alamat
+        Protokol Internet (IP). Sistem nama domain memetakan nama yang digunakan
+        orang untuk menemukan sebuah situs web ke alamat IP yang digunakan oleh
+        komputer untuk menemukan situs web tersebut.
+
+        <br /><br />
+        Sebagai contoh, jika seseorang mengetik "example.com" ke dalam peramban
+        web, sebuah server di belakang layar akan memetakan nama tersebut ke
+        alamat IP yang sesuai. Alamat IP memiliki struktur yang mirip dengan
+        203.0.113.72.
+        <br /><br />
+        Penelusuran web dan sebagian besar aktivitas internet lainnya bergantung
+        pada DNS untuk menyediakan informasi dengan cepat yang diperlukan guna
+        menghubungkan pengguna ke host jarak jauh. Pemetaan DNS didistribusikan
+        di seluruh internet dalam hierarki otoritas. Penyedia akses, perusahaan,
+        serta pemerintah, universitas, dan organisasi lainnya, biasanya memiliki
+        rentang alamat IP dan nama domain yang ditetapkan. Mereka juga biasanya
+        menjalankan server DNS untuk mengelola pemetaan nama-nama tersebut
+        dengan alamat yang bersangkutan. Sebagian besar Uniform Resource
+        Locators (URL) dibangun di sekitar nama domain dari server web yang
+        menerima permintaan dari klien.
+      </p>
+      <h3>Bagaimana DNS bekerja</h3>
+      <p>
+        Server DNS mengubah URL dan nama domain menjadi alamat IP yang dapat
+        dipahami dan digunakan oleh komputer. Mereka menerjemahkan apa yang
+        diketik pengguna ke dalam peramban menjadi sesuatu yang dapat digunakan
+        mesin untuk menemukan halaman web. Proses terjemahan dan pencarian ini
+        disebut resolusi DNS.
+        <br /><br />
+        Proses dasar dari resolusi DNS mengikuti langkah-langkah berikut:
+      </p>
+
+      <ol>
+        <li>
+          Pengguna memasukkan alamat web atau nama domain ke dalam peramban.
+        </li>
+        <li>
+          Peramban mengirim pesan, yang disebut query DNS rekursif, ke jaringan
+          untuk mengetahui alamat IP atau alamat jaringan yang sesuai dengan
+          domain tersebut.
+        </li>
+        <li>
+          Query tersebut dikirim ke server DNS rekursif, yang juga disebut
+          resolver rekursif, dan biasanya dikelola oleh penyedia layanan
+          internet (ISP). Jika resolver rekursif memiliki alamat tersebut, maka
+          server akan mengembalikan alamat tersebut kepada pengguna, dan halaman
+          web akan dimuat.
+        </li>
+        <li>
+          ika server DNS rekursif tidak memiliki jawabannya, server akan
+          mengirim query ke sejumlah server lainnya dalam urutan berikut: server
+          nama root DNS, server nama domain tingkat atas (TLD), dan server nama
+          otoritatif.
+        </li>
+        <li>
+          Ketiga jenis server ini bekerja sama dan terus mengarahkan hingga
+          mereka mendapatkan sebuah catatan DNS yang berisi alamat IP yang
+          diminta. Informasi ini kemudian dikirim kembali ke server DNS
+          rekursif, dan halaman web yang dicari pengguna akan dimuat. Server
+          nama root DNS dan server TLD pada dasarnya hanya mengarahkan query dan
+          jarang memberikan resolusi itu sendiri.
+        </li>
+        <li>
+          Server rekursif menyimpan atau menyimpan dalam cache catatan A untuk
+          nama domain tersebut, yang berisi alamat IP. Lain kali, ketika
+          menerima permintaan untuk nama domain tersebut, server dapat merespons
+          langsung kepada pengguna tanpa perlu melakukan query ke server lain.
+        </li>
+        <li>
+          Jika query mencapai server otoritatif dan tidak dapat menemukan
+          informasi, server akan mengembalikan pesan kesalahan.
+        </li>
+      </ol>
+      <p>
+        Seluruh proses query ke berbagai server ini hanya memakan waktu sebagian
+        detik dan biasanya tidak terlihat oleh pengguna.
+        <br /><br />
+        Server DNS menjawab pertanyaan dari dalam dan luar domainnya sendiri.
+        Ketika sebuah server menerima permintaan dari luar domain untuk
+        informasi tentang nama atau alamat di dalam domain, server menyediakan
+        jawaban otoritatif.
+        <br /><br />
+        Ketika sebuah server mendapatkan permintaan dari dalam domainnya untuk
+        nama atau alamat di luar domain tersebut, server meneruskan permintaan
+        tersebut ke server lain, biasanya yang dikelola oleh ISP-nya.
+      </p>
+      <div class="diagram">
+        <img src="image/artikel5/1.png" />
+        <!-- <figcaption>Contoh Nama Domain</figcaption> -->
+      </div>
+      <h3>Struktur DNS</h3>
+      <p>
+        Nama domain biasanya terdapat di dalam URL. Nama domain terdiri dari
+        beberapa bagian yang disebut label. Hierarki domain dibaca dari kanan ke
+        kiri, dengan setiap bagian menunjukkan subdivisi. <br /><br />
+        TLD (Top-Level Domain) muncul setelah titik dalam nama domain. Contoh
+        domain tingkat atas termasuk .com, .org, dan .edu, namun masih ada
+        banyak lagi. Beberapa dapat menunjukkan kode negara atau lokasi
+        geografis, seperti .us untuk Amerika Serikat atau .ca untuk Kanada.
+        <br /><br />
+        Setiap label di sisi kiri TLD menunjukkan subdomain dari domain di sisi
+        kanannya. Misalnya, dalam URL www.techtarget.com, "techtarget" adalah
+        subdomain dari .com, dan "www." adalah subdomain dari techtarget.com.
+        <br /><br />
+        Ada hingga 127 level subdomain, dan setiap label dapat memiliki hingga
+        63 karakter. Panjang total karakter domain bisa mencapai 253 karakter.
+        Aturan lainnya termasuk tidak memulai atau mengakhiri label dengan tanda
+        hubung dan tidak memiliki nama TLD yang sepenuhnya numerik.
+        <br /><br />
+        Internet Engineering Task Force (IETF) telah menetapkan aturan tentang
+        penerapan nama domain dalam Request for Comments (RFC) 1035.
+      </p>
+      <h3>Jenis-jenis server DNS</h3>
+      <p>
+        Terdapat beberapa jenis server yang terlibat dalam menyelesaikan
+        resolusi DNS. Berikut adalah daftar empat server nama berdasarkan urutan
+        query yang melewatinya. Mereka menyediakan nama domain yang dicari atau
+        referensi ke server nama lainnya.
+      </p>
+      <ol>
+        <li>
+          <b>Server rekursif:</b> Server rekursif menerima query DNS dari
+          aplikasi, seperti peramban web. Ini adalah sumber daya pertama yang
+          diakses pengguna dan akan menyediakan jawaban untuk query jika
+          jawabannya disimpan dalam cache, atau mengakses server di level
+          berikutnya jika tidak.
+        </li>
+        <li>
+          <b>Server nama root:</b> Server ini adalah tempat pertama yang
+          dikirimi query oleh server rekursif jika jawabannya tidak disimpan
+          dalam cache. Server nama root merupakan indeks dari semua server yang
+          akan memiliki informasi yang diminta.
+        </li>
+        <li>
+          <b>Server TLD:</b> Server root mengarahkan query berdasarkan TLD,
+          misalnya .com, .edu, atau .org dalam URL. Ini adalah bagian pencarian
+          yang lebih spesifik.
+        </li>
+        <li>
+          <b>Server nama otoritatif:</b> Server nama otoritatif adalah titik
+          akhir dari query DNS. Server ini mengetahui segala sesuatu tentang
+          domain tertentu dan menangani bagian subdomain dari nama domain.
+          Server ini menyimpan catatan sumber daya DNS yang berisi informasi
+          spesifik tentang domain dan mengembalikan catatan yang diperlukan ke
+          server rekursif untuk dikirimkan kembali ke klien serta menyimpannya
+          lebih dekat ke klien untuk pencarian di masa depan.
+        </li>
+      </ol>
+      <p>
+        Cara sederhana melihat proses ini adalah server rekursif terutama
+        bertanya atas nama pengguna dan server otoritatif terutama menjawab
+        query pengguna. Server root dan TLD menangani query saat query tersebut
+        dikirim dari server rekursif ke otoritas yang sesuai.
+      </p>
+      <h3>Jenis-jenis query DNS</h3>
+      <p>
+        Jenis-jenis query DNS berikut ini adalah yang utama yang terjadi di
+        berbagai tahap dalam resolusi DNS:
+      </p>
+      <ol>
+        <li>
+          <b>Query DNS rekursif:</b> Query yang terjadi antara server rekursif
+          dan klien. Jawaban yang diberikan adalah resolusi nama penuh atau
+          pesan kesalahan yang mengatakan bahwa nama tersebut tidak dapat
+          ditemukan.
+        </li>
+        <li>
+          <b>Query DNS iteratif:</b> Terjadi antara resolver rekursif, yang
+          merupakan server DNS lokal, dan server nama non-lokal, seperti server
+          root, TLD, dan server otoritatif. Query iteratif tidak menuntut
+          resolusi nama; server nama dapat memberikan jawaban atau referensi ke
+          server lain.
+        </li>
+        <li>
+          <b>Query DNS non-rekursif:</b> Terjadi ketika resolver rekursif sudah
+          mengetahui tempat mendapatkan jawaban. Jawaban tersebut sudah
+          tersimpan dalam cache di server rekursif atau server rekursif tahu
+          untuk melewati server root dan TLD dan langsung pergi ke server
+          otoritatif tertentu.
+        </li>
+      </ol>
+      <p>
+        Dalam proses dasar DNS, klien membuat query rekursif ke resolver
+        rekursif, yang kemudian membuat serangkaian query iteratif yang
+        menghasilkan referensi ke query iteratif berikutnya. Akhirnya, query
+        sampai ke server otoritatif, yang, jika resolver rekursif tahu
+        jawabannya ada di sana, akan membuat query non-rekursif untuk
+        mengambilnya. Informasi tersebut kemudian disimpan di resolver rekursif
+        sehingga query non-rekursif dapat mengambilnya di masa mendatang.
+      </p>
+      <h3>Catatan DNS umum</h3>
+      <p>
+        Catatan DNS adalah informasi yang dicari dalam query. Bergantung pada
+        query, klien, atau aplikasi, informasi yang dibutuhkan bisa
+        berbeda-beda. Beberapa catatan wajib ada, seperti catatan A.
+        <br /><br />
+        Terdapat banyak jenis catatan DNS, masing-masing dengan tujuannya
+        sendiri dalam menetapkan bagaimana query harus diproses. Catatan DNS
+        yang umum meliputi:
+      </p>
+      <ul>
+        <li>
+          <b>Catatan A:</b> Singkatan dari address dan menyimpan alamat IP
+          sebuah domain. Catatan A hanya berlaku untuk alamat IPv4. Alamat IPv6
+          menggunakan catatan AAAA, yang menggunakan format lebih panjang dari
+          alamat IPv6. Sebagian besar situs web hanya memiliki satu catatan A,
+          tetapi beberapa situs besar memiliki beberapa, yang membantu dengan
+          load balancing dengan melayani catatan A yang berbeda ke pengguna yang
+          berbeda dalam lalu lintas yang padat.
+        </li>
+        <li>
+          <b>Catatan NS:</b> Catatan server nama ini menunjukkan server
+          otoritatif mana yang bertanggung jawab untuk menyimpan semua informasi
+          tentang domain tertentu. Biasanya, domain memiliki server nama utama
+          dan cadangan untuk meningkatkan keandalan, dan beberapa catatan NS
+          digunakan untuk mengarahkan query ke server tersebut.
+        </li>
+        <li>
+          <b>Catatan TXT:</b> Catatan TXT memungkinkan administrator memasukkan
+          teks ke dalam DNS. Tujuan awalnya adalah untuk memasukkan catatan yang
+          dapat dibaca manusia ke dalam DNS, tetapi saat ini catatan yang dapat
+          dibaca mesin sering dimasukkan. Catatan TXT digunakan untuk
+          mengonfirmasi kepemilikan domain, mengamankan email, dan mengatasi
+          spam email.
+        </li>
+        <li>
+          <b>Catatan CNAME:</b> Catatan nama kanonik digunakan sebagai pengganti
+          catatan A ketika ada alias. Mereka digunakan untuk mengulangi query
+          dari alamat IP yang sama dengan dua domain yang berbeda. Contohnya
+          adalah dalam URL searchsecurity.techtarget.com, di mana CNAME akan
+          melakukan query ke techtarget.com.
+        </li>
+      </ul>
+      <div class="diagram">
+        <img src="image/artikel5/2.png" />
+        <!-- <figcaption>Contoh Nama Domain</figcaption> -->
+      </div>
+      <h3>Bagaimana DNS meningkatkan kinerja web?</h3>
+      <p>
+        Server dapat menyimpan catatan A, atau alamat IP, yang mereka terima
+        dari query DNS untuk jangka waktu tertentu. Caching meningkatkan
+        efisiensi, memungkinkan server untuk merespons dengan cepat ketika
+        permintaan untuk alamat IP yang sama datang kembali. <br /><br />
+        Sebagai contoh, jika semua orang di sebuah kantor perlu mengakses video
+        pelatihan yang sama di situs web tertentu pada hari yang sama, server
+        DNS lokal hanya perlu menyelesaikan nama sekali, dan kemudian bisa
+        melayani semua permintaan lain dari cache-nya. Lamanya waktu catatan
+        disimpan -- juga dikenal sebagai time to live (TTL) -- diatur oleh
+        administrator dan tergantung pada berbagai faktor. Periode waktu yang
+        lebih panjang mengurangi beban pada server, sedangkan periode yang lebih
+        pendek memastikan respons yang paling akurat.
+      </p>
+      <h3>Caching DNS</h3>
+      <p>
+        Tujuan dari caching DNS adalah untuk mengurangi waktu yang dibutuhkan
+        untuk mendapatkan jawaban atas query DNS. Caching memungkinkan DNS untuk
+        menyimpan jawaban sebelumnya dari query lebih dekat ke klien dan
+        memberikan informasi yang sama lebih cepat pada saat query diulang.
+        <br /><br />
+        Data DNS dapat disimpan dalam beberapa tempat. Beberapa tempat umum
+        termasuk:
+      </p>
+      <ul>
+        <li>
+          <b>Peramban:</b> Sebagian besar peramban, seperti Apple Safari, Google
+          Chrome, dan Mozilla Firefox, secara default menyimpan data DNS untuk
+          jangka waktu tertentu. Peramban adalah cache pertama yang diperiksa
+          ketika permintaan DNS dilakukan, sebelum permintaan meninggalkan mesin
+          menuju server resolver DNS lokal.
+        </li>
+        <li>
+          <b>Sistem operasi (OS):</b> Banyak OS memiliki resolver DNS bawaan
+          yang disebut stub resolver yang menyimpan data DNS dan menangani query
+          sebelum dikirim ke server eksternal. Sistem operasi biasanya di-query
+          setelah peramban atau aplikasi query lainnya.
+        </li>
+        <li>
+          <b>Resolver rekursif:</b> Jawaban atas query DNS juga dapat disimpan
+          di resolver rekursif DNS. Resolver mungkin sudah memiliki beberapa
+          catatan yang diperlukan untuk memberikan respons dan bisa melewati
+          beberapa langkah dalam proses resolusi DNS. Misalnya, jika resolver
+          memiliki catatan A tetapi tidak memiliki catatan NS, resolver dapat
+          melewati server root dan langsung melakukan query ke server TLD.
+        </li>
+      </ul>
+      <div class="diagram">
+        <img src="image/artikel5/3.png" />
+        <!-- <figcaption>Contoh Nama Domain</figcaption> -->
+      </div>
+      <h3>Keamanan DNS</h3>
+      <p>
+        DNS memiliki beberapa kerentanan yang telah ditemukan seiring waktu.
+        Salah satu kerentanan tersebut adalah DNS cache poisoning. Dalam DNS
+        cache poisoning, data didistribusikan ke resolver caching dengan
+        berpura-pura sebagai server asal otoritatif. Data tersebut kemudian
+        dapat memberikan informasi palsu dan memengaruhi TTL. Permintaan
+        aplikasi yang sebenarnya juga dapat dialihkan ke jaringan host yang
+        berbahaya. <br /><br />
+        Seseorang dengan niat jahat dapat membuat situs web berbahaya dengan
+        judul yang menyesatkan dan mencoba meyakinkan pengguna bahwa situs
+        tersebut asli, memberikan peretas akses ke informasi pengguna. Dengan
+        mengganti karakter dalam nama domain dengan karakter yang mirip --
+        seperti mengganti angka 1 dengan huruf l, yang mungkin terlihat serupa
+        -- pengguna bisa tertipu untuk memilih tautan palsu. Ini sering
+        dieksploitasi dengan serangan phishing.
+        <br /><br />
+        Individu dapat menggunakan DNS Security Extensions (DNSSEC) untuk
+        keamanan. DNSSEC mendukung respons yang ditandatangani secara
+        kriptografis.
+      </p>
+      <h3>Sumber :</h3>
+      <a
+        href="https://www.techtarget.com/searchnetworking/definition/domain-name-system"
+      >
+        <p>domain name system (DNS)</p>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h3>Memimum</h3>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Linkind</a>
+          <a href="#">Twitter</a>
+          <a href="#">Github</a>
+        </div>
+        <p class="copyright">&copy; 2024 Dorizz</p>
+      </div>
+    </footer>
+
+    <script>
+      let lastScrollTop = 0;
+      const header = document.getElementById("main-header");
+
+      window.addEventListener("scroll", function () {
+        let currentScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+          // Scroll turun, sembunyikan header
+          header.classList.add("hidden-header");
+        } else {
+          // Scroll naik, tampilkan header
+          header.classList.remove("hidden-header");
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Hindari nilai negatif
+      });
+    </script>
+  </body>
+</html>
